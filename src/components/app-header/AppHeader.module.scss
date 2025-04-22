@@ -1,0 +1,16 @@
+.app_header__container {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  ul {
+    display: flex;
+    list-style-type: none;
+    gap: 10px;
+    li a {
+      color: black;
+      &.active {
+        color: green;
+      }
+    }
+  }
+}
