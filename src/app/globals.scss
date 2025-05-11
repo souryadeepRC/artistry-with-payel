@@ -1,11 +1,11 @@
 :root {
-  --background: #ffffff;
+  --background: #fafafa;
   --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #171717;
     --foreground: #ededed;
   }
 }
@@ -29,13 +29,13 @@ body {
   padding: 0;
   margin: 0;
 }
-.app__content {
-  padding: 25px;
-  text-align: center;
-}
+
 a {
-  color: inherit;
+  color: var(--foreground);
   text-decoration: none;
+  &.active {
+    color: green;
+  }
 }
 ul {
   list-style-type: none;
@@ -43,6 +43,9 @@ ul {
   gap: 10px;
   justify-content: center;
   margin: 10px;
+}
+.Triva_Menu__overlay .Triva_Menu__container ul {
+  flex-direction: column;
 }
 
 @media (prefers-color-scheme: dark) {
