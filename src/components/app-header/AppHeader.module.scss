@@ -1,16 +1,22 @@
 .app_header__container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 15px;
-  ul {
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+  .header__content {
+    width: 80%;
     display: flex;
-    list-style-type: none;
-    gap: 10px;
-    li a {
-      color: black;
-      &.active {
-        color: green;
-      }
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+    ul {
+      display: flex;
+      list-style-type: none;
+      gap: 10px;
     }
   }
 }

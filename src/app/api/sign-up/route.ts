@@ -7,7 +7,7 @@ import { NextRequest } from "next/server";
 export const POST = async (request: NextRequest) => {
   await dbConnect();
   try {
-    const { username, email, password } = await request.json();
+    const { name, email, password } = await request.json();
 
     const user = await UserModel.findOne({ email });
     if (user) {
@@ -17,7 +17,7 @@ export const POST = async (request: NextRequest) => {
     }
     const encryptedPassword = await bcrypt.hash(password, 10);
     const createdUser = new UserModel({
-      username,
+      name,
       email,
       password: encryptedPassword,
     });
@@ -33,7 +33,7 @@ export const POST = async (request: NextRequest) => {
 export const PATCH = async (request: NextRequest, response: any) => {
   await dbConnect();
   try {
-    const { username, email, password } = await request.json();
+    const { name, email, password } = await request.json();
     const user = await UserModel.findOne({ email });
     if (!user) {
       return apiResponse.badRequest({
@@ -44,7 +44,7 @@ export const PATCH = async (request: NextRequest, response: any) => {
     await UserModel.updateOne(
       { _id: user._id },
       {
-        $set: { username, password: encryptedPassword },
+        $set: { name, password: encryptedPassword },
       }
     );
 
